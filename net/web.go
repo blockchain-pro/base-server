@@ -1,7 +1,7 @@
 package net
 
 import (
-	"github.com/panglove/BaseServer/config"
+	"github.com/blockchain-pro/base-server/config"
 	"fmt"
 	"log"
 	"net/http"

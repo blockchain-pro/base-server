@@ -1,6 +1,6 @@
 package net
 
-import "github.com/panglove/BaseServer/config"
+import "github.com/blockchain-pro/base-server/config"
 
 func Init(config *config.Config) {
 	InitWeb(&config.WebServer)

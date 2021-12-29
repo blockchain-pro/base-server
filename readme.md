@@ -9,8 +9,8 @@ package test
 
 import (    
 	"fmt"  
-	"github.com/panglove/BaseServer/net"  
-	"github.com/panglove/BaseServer/server"  
+	"github.com/blockchain-pro/base-server/net"  
+	"github.com/blockchain-pro/base-server/server"  
 	"net/http"  
 )
 

@@ -3,7 +3,7 @@ package mongodb
 import (
 	"context"
 	"fmt"
-	"github.com/panglove/BaseServer/config"
+	"github.com/blockchain-pro/base-server/config"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -14,39 +14,40 @@ import (
 )
 
 type MongoDB struct {
-	Client *mongo.Client
+	Client   *mongo.Client
 	Database *mongo.Database
 }
-func New(db *config.MongoDB)*MongoDB{
+
+func New(db *config.MongoDB) *MongoDB {
 	if !db.Enable {
 		return nil
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://"+db.USER+":"+db.PSWD+"@"+db.HOST+":"+ strconv.Itoa(db.PORT)+"/"+db.DB))
+	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://"+db.USER+":"+db.PSWD+"@"+db.HOST+":"+strconv.Itoa(db.PORT)+"/"+db.DB))
 
-	if err!=nil {
-		log.Println("connect mongodb error:",err)
+	if err != nil {
+		log.Println("connect mongodb error:", err)
 		return nil
 	}
 
 	err = client.Ping(ctx, readpref.Primary())
 
-	if err!=nil {
-		log.Println("connect mongodb error:",err)
+	if err != nil {
+		log.Println("connect mongodb error:", err)
 		return nil
 	}
-	newMongo :=new(MongoDB)
+	newMongo := new(MongoDB)
 	newMongo.Client = client
-	newMongo.Database = client.Database(""+db.DB)
-	fmt.Println("Mongodb Enable Port :",db.PORT)
+	newMongo.Database = client.Database("" + db.DB)
+	fmt.Println("Mongodb Enable Port :", db.PORT)
 	return newMongo
 }
 
-func(db *MongoDB) Find(table string,filter interface{})(mr []map[string]interface{}) {
+func (db *MongoDB) Find(table string, filter interface{}) (mr []map[string]interface{}) {
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
-	collection :=db.Database.Collection(table)
+	collection := db.Database.Collection(table)
 	cur, err := collection.Find(ctx, filter)
 	if err != nil {
 		log.Println(err)
@@ -59,7 +60,7 @@ func(db *MongoDB) Find(table string,filter interface{})(mr []map[string]interfac
 		if err != nil {
 			log.Println(err)
 		}
-		mr=append(mr,result.Map())
+		mr = append(mr, result.Map())
 		// do something with result....
 	}
 	if err := cur.Err(); err != nil {

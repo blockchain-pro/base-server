@@ -1,7 +1,7 @@
 package web
 
 import (
-	"github.com/panglove/BaseServer/util/struct2"
+	"github.com/blockchain-pro/base-server/util/struct2"
 	"strings"
 )
 
@@ -101,20 +101,19 @@ func GetUrlHostHttp(url string) string {
 }
 
 func ParseParam(param map[string]interface{}) string {
-	if len(param)==0 {
+	if len(param) == 0 {
 		return ""
 	}
 	var connectParam = "&"
 	var connectStr = ""
-	for k:=range param {
-		v:= struct2.InterfaceStrval(param[k])
-		connectStr +=k+"="+v+connectParam
+	for k := range param {
+		v := struct2.InterfaceStrval(param[k])
+		connectStr += k + "=" + v + connectParam
 	}
-	if len(connectStr)>0 {
+	if len(connectStr) > 0 {
 		connectStr = connectStr[:len(connectStr)-1]
 	}
 
 	return connectStr
-
 
 }

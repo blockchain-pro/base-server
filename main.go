@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/panglove/BaseServer/test"
+	"github.com/blockchain-pro/base-server/test"
 )
 
-func main()  {
+func main() {
 
 	fmt.Println("hello base sever")
 	test.Start()

@@ -3,8 +3,8 @@ package mysql
 import (
 	"database/sql"
 	"fmt"
+	"github.com/blockchain-pro/base-server/config"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/panglove/BaseServer/config"
 	"log"
 	"strings"
 )
@@ -170,13 +170,13 @@ func (mdb *MysqlDB) DLimit(what ...string) *MysqlDB {
 	mdb.NowSql = whereSql
 	return mdb
 }
-func (mdb *MysqlDB) DStrEqual(i string,k string) string {
+func (mdb *MysqlDB) DStrEqual(i string, k string) string {
 
-	return  i+"='"+k+"'"
+	return i + "='" + k + "'"
 }
-func (mdb *MysqlDB) DIntEqual(i string,k string) string {
+func (mdb *MysqlDB) DIntEqual(i string, k string) string {
 
-	return  i+"="+k+""
+	return i + "=" + k + ""
 }
 
 func (mdb *MysqlDB) DExec() ([]map[string]interface{}, bool) {

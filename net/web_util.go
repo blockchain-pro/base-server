@@ -1,18 +1,18 @@
 package net
 
 import (
-	"github.com/panglove/BaseServer/util/struct2"
+	"github.com/blockchain-pro/base-server/util/struct2"
 	"encoding/json"
 	"fmt"
 	"net/http"
 )
 
 type BaseRespon struct {
-
 }
+
 func WebSendMsg(response http.ResponseWriter, info interface{}, Code int, Msg string) {
 
-	if info==nil {
+	if info == nil {
 		info = BaseRespon{}
 	}
 

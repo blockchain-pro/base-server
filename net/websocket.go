@@ -1,7 +1,7 @@
 package net
 
 import (
-	"github.com/panglove/BaseServer/config"
+	"github.com/blockchain-pro/base-server/config"
 	"encoding/json"
 	"fmt"
 	"golang.org/x/net/websocket"
@@ -10,6 +10,7 @@ import (
 	"strconv"
 	"strings"
 )
+
 var WebsocketMux *http.ServeMux
 
 type WebsocketUtil interface {
@@ -58,7 +59,7 @@ func GoWebsocketReceiveMsg(wsCon *websocket.Conn) {
 		err := websocket.Message.Receive(wsCon, &msg)
 
 		if err == nil {
-		//	fmt.Println("connect msg :" + msg)
+			//	fmt.Println("connect msg :" + msg)
 
 			for _, receiver := range WebsocketReciverList {
 				receiver.OnMessage(wsCon, msg)

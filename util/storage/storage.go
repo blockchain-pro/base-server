@@ -1,8 +1,8 @@
 package storage
 
 import (
-	des "github.com/panglove/BaseServer/util/crypto"
-	"github.com/panglove/BaseServer/util/file"
+	des "github.com/blockchain-pro/base-server/util/crypto"
+	"github.com/blockchain-pro/base-server/util/file"
 )
 
 const StoreDir = "./data/"

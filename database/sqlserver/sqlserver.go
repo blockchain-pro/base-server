@@ -3,8 +3,8 @@ package sqlserver
 import (
 	"database/sql"
 	"fmt"
+	"github.com/blockchain-pro/base-server/config"
 	_ "github.com/denisenkom/go-mssqldb"
-	"github.com/panglove/BaseServer/config"
 	"log"
 	"strings"
 )
@@ -29,7 +29,7 @@ func New(db *config.MsSql) *MssqlDB {
 	}
 	mdb := new(MssqlDB)
 	mdb.DB = MssqlDBInstall
-	fmt.Println("mssql connected " +db.HOST)
+	fmt.Println("mssql connected " + db.HOST)
 	return mdb
 
 }

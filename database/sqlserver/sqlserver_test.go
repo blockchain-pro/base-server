@@ -1,7 +1,7 @@
 package sqlserver
 
 import (
-	"github.com/panglove/BaseServer/config"
+	"github.com/blockchain-pro/base-server/config"
 	"log"
 	"testing"
 )

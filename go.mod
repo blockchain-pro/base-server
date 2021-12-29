@@ -1,4 +1,4 @@
-module github.com/panglove/BaseServer
+module github.com/blockchain-pro/base-server
 
 go 1.14
 

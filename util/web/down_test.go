@@ -2,7 +2,7 @@ package web
 
 import (
 	"fmt"
-	"github.com/panglove/BaseServer/util/file"
+	"github.com/blockchain-pro/base-server/util/file"
 	"testing"
 )
 

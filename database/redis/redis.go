@@ -1,11 +1,11 @@
 package redis
 
-import "github.com/panglove/BaseServer/config"
+import "github.com/blockchain-pro/base-server/config"
 
 type RedisDB struct {
-
 }
-func New(db *config.Redis)*RedisDB{
+
+func New(db *config.Redis) *RedisDB {
 
 	if !db.Enable {
 		return nil

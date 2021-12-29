@@ -1,10 +1,10 @@
 package database
 
 import (
-	"github.com/panglove/BaseServer/config"
-	"github.com/panglove/BaseServer/database/mongodb"
-	"github.com/panglove/BaseServer/database/mysql"
-	"github.com/panglove/BaseServer/database/redis"
+	"github.com/blockchain-pro/base-server/config"
+	"github.com/blockchain-pro/base-server/database/mongodb"
+	"github.com/blockchain-pro/base-server/database/mysql"
+	"github.com/blockchain-pro/base-server/database/redis"
 )
 
 type DataBase struct {

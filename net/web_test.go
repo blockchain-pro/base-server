@@ -1,7 +1,7 @@
 package net
 
 import (
-	"github.com/panglove/BaseServer/config"
+	"github.com/blockchain-pro/base-server/config"
 	"fmt"
 	"log"
 	"net/http"
@@ -16,7 +16,6 @@ func TestWeb(ct *testing.T) {
 	if !cf.Enable {
 		return
 	}
-
 
 	if cf.UseStatic {
 
@@ -36,7 +35,6 @@ func TestWeb(ct *testing.T) {
 	go func() {
 		fmt.Println("Web Enable Port :", cf.PORT)
 		mux := http.NewServeMux()
-
 
 		mux.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 
